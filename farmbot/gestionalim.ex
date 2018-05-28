@@ -17,12 +17,13 @@ defmodule Farmbottest do
 
 #fonction pour allumer et eteindre l Arduino
   def start(time) do
-    :os.cmd('./hub-ctrl -h 0 -P 2 -p 1')
-    :timer.sleep(time)
-    :os.cmd('./hub-ctrl -h 0 -P 2 -p 0')
     IO.puts "l'Arduino va s'éteindre pendant  "
     IO.puts time
     IO.puts "secondes"
+    :os.cmd('./hub-ctrl -h 0 -P 2 -p 1')
+    :timer.sleep(time)
+    :os.cmd('./hub-ctrl -h 0 -P 2 -p 0')
+    
   end
 #fonction parcourant la table et récupérant le temps avant le prochain événement
   def get1() do
